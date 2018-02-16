@@ -1,5 +1,6 @@
 from bottle import*
 import json
+import os
 
 @route("/static/<file>")
 def static_skrar(file):
@@ -18,7 +19,7 @@ def error404(error):
     return '<p>This webside dose not exist</p><a href="/">back</>'
 
 
-run(host='localhost', port=8080, debug=True)
+run(host='0.0.0.0', port=os.environ.get('PORT'))
 
 
 
